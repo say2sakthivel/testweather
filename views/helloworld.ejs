@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Node JS</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>
+    <%= title2 %>
+  </p>
+  <br />
+  <textarea id="city"></textarea>
+  <button id="change">Get Weather</button>
+  <br>
+  <div id="result">
+    <%- include content.ejs %>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+    var $result = $('#result');
+    $('#change').click(function () {
+      $result.load('/content2' + '?city=' + $('textarea#city').val());
+    });
+  </script>
+
+
+</body>
+
+</html>

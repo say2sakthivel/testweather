@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<style>
+  #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #customers td,
+  #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+
+
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+</style>
+
+<body>
+  <br>
+  <div>
+    
+    <% if (data !== "" && data.weather !== undefined) { %>
+    <table id="customers" style="height: 195px; width: 492px; background-image: url('https://ak0.picdn.net/shutterstock/videos/2683970/thumb/1.jpg'); background-size: 100%;">
+      <tbody>
+        <tr>
+          <td style="width: 175px;" rowspan="4"><img src="https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/scattered_showers_day_night@2x.png"
+              alt="" width="136" height="136" /></td>
+          <td style="width: 152px; text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:larger" colspan="2">
+            <%= data.main.temp %>&deg;&nbsp;C
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 152px;">&nbsp;Humidity</td>
+          <td style="width: 143px;">&nbsp;<%= data.main.humidity %> %</td>
+        </tr>
+        <tr>
+          <td style="width: 152px;">&nbsp;Speed</td>
+          <td style="width: 143px;">&nbsp;<%= data.wind.speed %> m/sec</td>
+        </tr>
+        <tr>
+          <td style="width: 152px;">&nbsp;Clouds</td>
+          <td style="width: 143px;">&nbsp;<%= data.clouds.all %> %</td>
+        </tr>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h1>City not found</h1>
+      <% } %>
+  </div>
+</body>
+
+</html>
